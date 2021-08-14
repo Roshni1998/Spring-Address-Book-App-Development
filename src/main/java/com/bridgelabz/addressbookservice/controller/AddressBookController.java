@@ -65,10 +65,11 @@ public class AddressBookController {
      * Purpose: To update existing contact details to the address book
      * @return returns ResponseEntity which is holding ResponseDTO and HttpStatus
      * */
-    @PutMapping("/updatecontact")
-    public ResponseEntity<ResponseDTO> updateContact(@RequestBody AddressBookDTO addressBookDTO) {
+    @PutMapping("/updatecontact/{personId}")
+    public ResponseEntity<ResponseDTO> updateContact(@PathVariable("personId") int personId,
+                                                     @RequestBody AddressBookDTO addressBookDTO) {
         AddressBookData personData = null;
-        personData = addressBookService.updateContact(addressBookDTO);
+        personData = addressBookService.updateContact(personId,addressBookDTO);
         ResponseDTO responseDTO = new ResponseDTO("Contact Updated Sucessfully", personData);
         return new ResponseEntity<ResponseDTO>(responseDTO, HttpStatus.OK);
     }
