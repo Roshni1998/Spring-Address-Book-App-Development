@@ -2,8 +2,13 @@ package com.bridgelabz.addressbookservice.model;
 
 import com.bridgelabz.addressbookservice.dto.AddressBookDTO;
 import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public @Data class AddressBookData {
+
+    @Id
     private int personId;
     private String firstName;
     private String lastName;
