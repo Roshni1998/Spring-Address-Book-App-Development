@@ -1,7 +1,7 @@
 /* AddressBookDTO.java */
 package com.bridgelabz.addressbookservice.dto;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -11,7 +11,7 @@ public class AddressBookDTO {
     public String firstName;
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Invalid Last Name")
     public String lastName;
-    @NotNull(message = "Address Field cannot be empty")
+    @NotEmpty(message = "Address Field cannot be empty")
     public String address;
     @Size(max = 10, min = 10, message = "Please Enter a valid phone number")
     public String mobileNo;
